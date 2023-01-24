@@ -11,9 +11,6 @@ import br.com.ProjetoIntroducaoSpring.entites.Usuario;
 @RequestMapping(value = "/usuarios")
 public class UsuarioResource {
 
-	
-	
-	
 	@GetMapping
 	public ResponseEntity<Usuario> findAll() {
 

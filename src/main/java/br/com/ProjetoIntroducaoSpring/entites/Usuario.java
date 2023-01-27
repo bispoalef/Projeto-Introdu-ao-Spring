@@ -1,11 +1,14 @@
 package br.com.ProjetoIntroducaoSpring.entites;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,6 +29,10 @@ public class Usuario implements Serializable {
 
 	private String Senha;
 
+	@OneToMany(mappedBy = "cliente")
+
+	private List<Pedido> pedidos = new ArrayList<>();
+
 	public Usuario() {
 	}
 
@@ -36,6 +43,10 @@ public class Usuario implements Serializable {
 		this.email = email;
 		this.telefone = telefone;
 		Senha = senha;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
 	}
 
 	public Long getId() {
